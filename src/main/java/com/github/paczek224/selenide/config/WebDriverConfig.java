@@ -2,6 +2,7 @@ package com.github.paczek224.selenide.config;
 
 import jakarta.annotation.PostConstruct;
 import lombok.Setter;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
@@ -25,5 +26,6 @@ public class WebDriverConfig {
         com.codeborne.selenide.Configuration.baseUrl = baseUrl;
         com.codeborne.selenide.Configuration.reportsFolder = "target/reports/screenshots";
         com.codeborne.selenide.Configuration.downloadsFolder = "target/downloads";
+        com.codeborne.selenide.Configuration.browserCapabilities = new ChromeOptions().addArguments("--no-sandbox", "--disable-dev-shm-usage", "--headless=new");
     }
 }
